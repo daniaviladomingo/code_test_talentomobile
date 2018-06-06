@@ -1,6 +1,5 @@
 package com.talento.codetest.ui
 
-import android.os.Bundle
 import com.talento.codetest.R
 import com.talento.codetest.base.BaseActivity
 import com.talento.domain.interactors.GetAccountSingleUseCase
