@@ -3,7 +3,7 @@ package com.talento.domain.model
 data class Account(
     val accountBalanceInCents: Int,
     val accountCurrency: String,
-    val accountId: Int,
+    val accountId: Long,
     val accountName: String,
     val accountNumber: Int,
     val accountType: String,

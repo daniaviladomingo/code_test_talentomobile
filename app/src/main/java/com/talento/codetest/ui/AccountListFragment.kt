@@ -30,7 +30,9 @@ class AccountListFragment: BaseFragment() {
             addAll(accountList)
         }
 
-        accountListAdapter.notifyDataSetChanged()
+        activity?.runOnUiThread {
+            accountListAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun getLayoutId() = R.layout.fragment_account_list

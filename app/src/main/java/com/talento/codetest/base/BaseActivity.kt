@@ -4,13 +4,14 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import com.talento.codetest.base.progress.IShowProgress
 import com.talento.codetest.utils.Utils
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     lateinit var showProgress: IShowProgress
-    lateinit var mToolbar: Toolbar
+    var toolbar: Toolbar? =  null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,15 +24,14 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
         initializeToolbar()
 
-        requestedOrientation = if (Utils.isTablet(this)) {
-            ActivityInfo.SCREEN_ORIENTATION_SENSOR
-        } else {
-            ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
-        }
+//        requestedOrientation = if (Utils.isTablet(this)) {
+//            ActivityInfo.SCREEN_ORIENTATION_SENSOR
+//        } else {
+//            ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
+//        }
     }
 
     private fun initializeToolbar() {
-        setSupportActionBar(mToolbar)
     }
 
     override fun onStart() {

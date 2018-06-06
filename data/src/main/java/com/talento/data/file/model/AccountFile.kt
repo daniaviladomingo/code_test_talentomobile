@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 data class AccountFile(
         @SerializedName("accountBalanceInCents") val accountBalanceInCents: Int,
         @SerializedName("accountCurrency") val accountCurrency: String,
-        @SerializedName("accountId") val accountId: Int,
+        @SerializedName("accountId") val accountId: Long,
         @SerializedName("accountName") val accountName: String,
         @SerializedName("accountNumber") val accountNumber: Int,
         @SerializedName("accountType") val accountType: String,

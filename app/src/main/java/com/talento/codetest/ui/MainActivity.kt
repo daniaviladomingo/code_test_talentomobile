@@ -1,15 +1,16 @@
 package com.talento.codetest.ui
 
+import android.os.Bundle
 import com.talento.codetest.R
 import com.talento.codetest.base.BaseActivity
-import com.talento.data.RepositoryImp
-import com.talento.data.file.FileDataSourceImp
-import com.talento.data.file.model.mapper.FileMapper
 import com.talento.domain.interactors.GetAccountSingleUseCase
 import com.talento.domain.model.Account
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import com.google.gson.Gson
+import com.talento.data.RepositoryImp
+import com.talento.data.file.FileDataSourceImp
+import com.talento.data.file.model.mapper.FileMapper
 
 class MainActivity : BaseActivity(), MainContract.IView {
 
@@ -21,8 +22,6 @@ class MainActivity : BaseActivity(), MainContract.IView {
     private var visibleAccountListFragment: AccountListFragment? = null
 
     override fun onStart() {
-        super.onStart()
-
         presenter = MainPresenter(
                 GetAccountSingleUseCase(
                         RepositoryImp(
@@ -35,12 +34,14 @@ class MainActivity : BaseActivity(), MainContract.IView {
                 Schedulers.io(),
                 AndroidSchedulers.mainThread())
 
+        super.onStart()
+
         initFragments()
     }
 
     private fun initFragments() {
-        allAccountListFragment = supportFragmentManager.findFragmentByTag(getString(R.string.fragment_all_accounts)) as AccountListFragment
-        visibleAccountListFragment = supportFragmentManager.findFragmentByTag(getString(R.string.fragment_visible_accounts)) as AccountListFragment
+        allAccountListFragment = supportFragmentManager.findFragmentByTag(getString(R.string.fragment_all_accounts)) as AccountListFragment?
+        visibleAccountListFragment = supportFragmentManager.findFragmentByTag(getString(R.string.fragment_visible_accounts)) as AccountListFragment?
     }
 
     override fun getLayoutId() = R.layout.activity_main
@@ -51,7 +52,7 @@ class MainActivity : BaseActivity(), MainContract.IView {
         }
 
         visibleAccountListFragment?.run {
-            updateAccountList(users)
+            updateAccountList(users.filter { it.isVisible })
         }
     }
 }
