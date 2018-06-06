@@ -1,7 +1,7 @@
-package com.talento.data.model
+package com.talento.data.file.model
 import com.google.gson.annotations.SerializedName
 
-data class AccountApi(
+data class AccountFile(
         @SerializedName("accountBalanceInCents") val accountBalanceInCents: Int,
         @SerializedName("accountCurrency") val accountCurrency: String,
         @SerializedName("accountId") val accountId: Int,
