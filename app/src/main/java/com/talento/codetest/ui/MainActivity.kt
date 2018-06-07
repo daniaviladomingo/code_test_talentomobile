@@ -1,15 +1,15 @@
 package com.talento.codetest.ui
 
+import com.google.gson.Gson
 import com.talento.codetest.R
 import com.talento.codetest.base.BaseActivity
-import com.talento.domain.interactors.GetAccountSingleUseCase
 import com.talento.domain.model.Account
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import com.google.gson.Gson
 import com.talento.data.RepositoryImp
 import com.talento.data.file.FileDataSourceImp
 import com.talento.data.file.model.mapper.FileMapper
+import com.talento.domain.interactors.GetAccountSingleUseCase
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class MainActivity : BaseActivity(), MainContract.IView {
 
@@ -29,9 +29,10 @@ class MainActivity : BaseActivity(), MainContract.IView {
                                         resources.openRawResource(R.raw.account),
                                         Gson()
                                 ))),
-                this,
                 Schedulers.io(),
                 AndroidSchedulers.mainThread())
+
+        presenter.onAttachView(this)
 
         super.onStart()
 

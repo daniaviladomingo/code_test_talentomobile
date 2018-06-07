@@ -1,12 +1,9 @@
 package com.talento.codetest.base
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import com.talento.codetest.base.progress.IShowProgress
-import com.talento.codetest.utils.Utils
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
