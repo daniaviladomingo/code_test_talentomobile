@@ -1,6 +1,7 @@
 package com.talento.codetest.base
 
-interface ScopePresenter {
+interface ScopePresenter<View: BaseView> {
+    fun onAttachView(view: View)
     fun onStop()
     fun init()
 }

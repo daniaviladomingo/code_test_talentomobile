@@ -33,6 +33,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     override fun onStart() {
         super.onStart()
+        getScopePresenter().onAttachView(this)
         getScopePresenter().init()
     }
 
@@ -41,7 +42,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         super.onStop()
     }
 
-    abstract fun getScopePresenter(): ScopePresenter
+    abstract fun getScopePresenter(): ScopePresenter<BaseView>
 
     override fun showProgress(message: String) {
         showProgress.showProgress(message)

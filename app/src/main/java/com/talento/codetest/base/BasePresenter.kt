@@ -3,12 +3,12 @@ package com.talento.codetest.base
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class BasePresenter<View: BaseView>: ScopePresenter {
+abstract class BasePresenter<View: BaseView>: ScopePresenter<View> {
 
     protected lateinit var view: View
     private val compositeDisposable = CompositeDisposable()
 
-    fun onAttachView(view: View) {
+    override fun onAttachView(view: View) {
         this.view = view
     }
 

@@ -13,7 +13,7 @@ import io.reactivex.schedulers.Schedulers
 
 class MainActivity : BaseActivity(), MainContract.IView {
 
-    lateinit var presenter: MainPresenter
+    lateinit var presenter: MainContract.IPresenter
 
     override fun getScopePresenter() = presenter
 
