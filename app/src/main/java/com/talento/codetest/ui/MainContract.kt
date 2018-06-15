@@ -9,5 +9,5 @@ interface MainContract {
         fun showUsers(users: List<Account>)
     }
 
-    interface IPresenter: ScopePresenter<IView>
+    interface IPresenter: ScopePresenter
 }

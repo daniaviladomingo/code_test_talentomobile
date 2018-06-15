@@ -3,6 +3,7 @@ package com.talento.codetest.ui
 import com.google.gson.Gson
 import com.talento.codetest.R
 import com.talento.codetest.base.BaseActivity
+import com.talento.codetest.base.BasePresenter
 import com.talento.domain.model.Account
 import com.talento.data.RepositoryImp
 import com.talento.data.file.FileDataSourceImp
@@ -13,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 
 class MainActivity : BaseActivity(), MainContract.IView {
 
-    lateinit var presenter: MainContract.IPresenter
+    private lateinit var presenter: BasePresenter<MainContract.IView>
 
     override fun getScopePresenter() = presenter
 
@@ -32,7 +33,7 @@ class MainActivity : BaseActivity(), MainContract.IView {
                 Schedulers.io(),
                 AndroidSchedulers.mainThread())
 
-        presenter.onAttachView(this)
+        presenter.attachView(this)
 
         super.onStart()
 

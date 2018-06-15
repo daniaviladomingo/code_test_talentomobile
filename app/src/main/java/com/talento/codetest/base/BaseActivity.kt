@@ -20,20 +20,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         }
 
         initializeToolbar()
-
-//        requestedOrientation = if (Utils.isTablet(this)) {
-//            ActivityInfo.SCREEN_ORIENTATION_SENSOR
-//        } else {
-//            ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
-//        }
     }
 
-    private fun initializeToolbar() {
-    }
+    private fun initializeToolbar() {}
 
     override fun onStart() {
         super.onStart()
-        getScopePresenter().onAttachView(this)
         getScopePresenter().init()
     }
 
@@ -42,7 +34,9 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         super.onStop()
     }
 
-    abstract fun getScopePresenter(): ScopePresenter<BaseView>
+    abstract fun getScopePresenter(): ScopePresenter
+
+    abstract fun getLayoutId(): Int
 
     override fun showProgress(message: String) {
         showProgress.showProgress(message)
@@ -51,6 +45,4 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     override fun dismissProgress() {
         showProgress.dismissProgress()
     }
-
-    abstract fun getLayoutId(): Int
 }
