@@ -1,42 +1,37 @@
 package com.talento.codetest.ui
 
-import com.google.gson.Gson
+import android.os.Bundle
 import com.talento.codetest.R
 import com.talento.codetest.base.BaseActivity
-import com.talento.codetest.base.BasePresenter
+import com.talento.codetest.di.components.DaggerActivityComponent
 import com.talento.domain.model.Account
-import com.talento.data.RepositoryImp
-import com.talento.data.file.FileDataSourceImp
-import com.talento.data.file.model.mapper.FileMapper
-import com.talento.domain.interactors.GetAccountSingleUseCase
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.IView {
 
-    private lateinit var presenter: BasePresenter<MainContract.IView>
+    @Inject
+    lateinit var presenter: MainPresenter
 
     override fun getScopePresenter() = presenter
 
     private var allAccountListFragment: AccountListFragment? = null
     private var visibleAccountListFragment: AccountListFragment? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initializeInjector()
+    }
+
+    private fun initializeInjector() {
+        DaggerActivityComponent.builder()
+                .applicationComponent(applicationComponent)
+                .activityModule(activityModule)
+                .build().inject(this)
+    }
+
     override fun onStart() {
-        presenter = MainPresenter(
-                GetAccountSingleUseCase(
-                        RepositoryImp(
-                                FileDataSourceImp(
-                                        FileMapper(),
-                                        resources.openRawResource(R.raw.account),
-                                        Gson()
-                                ))),
-                Schedulers.io(),
-                AndroidSchedulers.mainThread())
-
-        presenter.attachView(this)
-
         super.onStart()
-
+        presenter.attachView(this)
         initFragments()
     }
 

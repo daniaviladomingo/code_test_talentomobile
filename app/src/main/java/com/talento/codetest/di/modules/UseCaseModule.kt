@@ -1,4 +1,4 @@
-package com.talento.codetest.di.application
+package com.talento.codetest.di.modules
 
 import com.talento.domain.IRepository
 import com.talento.domain.interactors.GetAccountSingleUseCase
@@ -10,5 +10,5 @@ import javax.inject.Singleton
 class UseCaseModule {
     @Provides
     @Singleton
-    fun providesGetAccountSingleUseCase(repository: IRepository) = GetAccountSingleUseCase(repository)
+    fun provideGetAccountSingleUseCase(repository: IRepository) = GetAccountSingleUseCase(repository)
 }
