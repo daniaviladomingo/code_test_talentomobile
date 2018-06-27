@@ -6,15 +6,15 @@ import android.support.v7.widget.Toolbar
 import com.talento.codetest.AppApplication
 import com.talento.codetest.base.progress.IShowProgress
 import com.talento.codetest.di.components.ApplicationComponent
-import com.talento.codetest.di.modules.ActivityModule
+//import com.talento.codetest.di.modules.ActivityModule
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     lateinit var showProgress: IShowProgress
     var toolbar: Toolbar? =  null
 
-    protected val activityModule: ActivityModule
-        get() = ActivityModule(this)
+//    protected val activityModule: ActivityModule
+//        get() = ActivityModule(this)
 
     protected val applicationComponent: ApplicationComponent
         get() = (application as AppApplication).appComponent

@@ -25,7 +25,7 @@ class MainActivity : BaseActivity(), MainContract.IView {
     private fun initializeInjector() {
         DaggerActivityComponent.builder()
                 .applicationComponent(applicationComponent)
-                .activityModule(activityModule)
+//                .activityModule(activityModule)
                 .build().inject(this)
     }
 
