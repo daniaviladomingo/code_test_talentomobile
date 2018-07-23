@@ -8,7 +8,7 @@ import com.talento.codetest.di.createActivityComponent
 abstract class DaggerActivity: AppCompatActivity() {
 
     private var activityComponent: ActivityComponent? = null
-        get() = field ?: createActivityComponent(this, appApplication)
+        get() = field ?: createActivityComponent(appApplication)
 
     private val appApplication: AppApplication
         get() = (application as AppApplication)

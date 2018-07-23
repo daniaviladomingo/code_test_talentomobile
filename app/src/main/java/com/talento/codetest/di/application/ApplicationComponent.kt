@@ -3,6 +3,7 @@ package com.talento.codetest.di.application
 import android.content.Context
 import com.talento.codetest.AppApplication
 import com.talento.codetest.di.application.module.*
+import com.talento.codetest.ui.ViewModelFactory
 import com.talento.codetest.utils.schedulers.IScheduleProvider
 import com.talento.data.file.IFileDataSource
 import com.talento.domain.IRepository
@@ -16,7 +17,8 @@ import javax.inject.Singleton
     DataModule::class,
     FileModule::class,
     SchedulerModule::class,
-    UseCaseModule::class])
+    UseCaseModule::class,
+    ViewModelModule::class])
 
 interface ApplicationComponent {
 
@@ -29,6 +31,8 @@ interface ApplicationComponent {
     fun provideSchedule(): IScheduleProvider
 
     fun provideUseCase(): GetAccountSingleUseCase
+
+    fun provideViewModelFactory(): ViewModelFactory
 
     companion object {
         fun init(appApplication: AppApplication): ApplicationComponent = DaggerApplicationComponent.builder()

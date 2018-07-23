@@ -12,9 +12,9 @@ interface ActivityComponent {
     fun inject(mainActivity: MainActivity)
 
     companion object {
-        fun init(daggerActivity: DaggerActivity, applicationComponent: ApplicationComponent): ActivityComponent = DaggerActivityComponent.builder()
+        fun init(applicationComponent: ApplicationComponent): ActivityComponent = DaggerActivityComponent.builder()
                 .applicationComponent(applicationComponent)
-                .activityModule(ActivityModule(daggerActivity))
+                .activityModule(ActivityModule())
                 .build()
     }
 }

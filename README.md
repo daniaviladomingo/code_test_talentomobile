@@ -1,4 +1,4 @@
-# Code Test for talentoMOBILE (MVP with RxAndroid)
+# Code Test for talentoMOBILE (MVVM with LiveData)
 
 Instructions
 Please send us back the project inside a	zip file within the next 2	days indicating the starting/finish date and how many hours
