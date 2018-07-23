@@ -1,4 +1,4 @@
-package com.talento.codetest.di.qualifiers
+package com.talento.codetest.di.activity
 
 import javax.inject.Scope
 

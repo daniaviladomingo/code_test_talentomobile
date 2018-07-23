@@ -1,6 +1,7 @@
 package com.talento.codetest.ui
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.talento.codetest.R
@@ -21,6 +22,7 @@ class AccountListFragment: BaseFragment() {
 
         account_recyclerview.setHasFixedSize(true)
         account_recyclerview.adapter = accountListAdapter
+        account_recyclerview.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         account_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 

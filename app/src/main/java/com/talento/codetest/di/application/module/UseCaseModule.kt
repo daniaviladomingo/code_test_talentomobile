@@ -1,4 +1,4 @@
-package com.talento.codetest.di.modules
+package com.talento.codetest.di.application.module
 
 import com.talento.domain.IRepository
 import com.talento.domain.interactors.GetAccountSingleUseCase

@@ -1,4 +1,4 @@
-package com.talento.codetest.di.modules
+package com.talento.codetest.di.application.module
 
 import com.talento.codetest.utils.schedulers.IScheduleProvider
 import com.talento.codetest.utils.schedulers.ScheduleProviderImp

@@ -1,4 +1,4 @@
-package com.talento.codetest.di.modules
+package com.talento.codetest.di.application.module
 
 import android.content.Context
 import com.google.gson.Gson

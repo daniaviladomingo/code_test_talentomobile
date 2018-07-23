@@ -1,4 +1,4 @@
-package com.talento.codetest.di.modules
+package com.talento.codetest.di.application.module
 
 import com.talento.data.RepositoryImp
 import com.talento.data.file.IFileDataSource

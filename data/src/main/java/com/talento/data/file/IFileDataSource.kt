@@ -4,5 +4,5 @@ import com.talento.domain.model.Account
 import io.reactivex.Single
 
 interface IFileDataSource {
-    fun getAccounts(visibleAccount: Boolean): Single<List<Account>>
+    fun getAccounts(filterVisibleAccounts: Boolean = false): Single<List<Account>>
 }

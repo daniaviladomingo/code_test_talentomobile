@@ -1,7 +1,8 @@
-package com.talento.codetest.di.components
+package com.talento.codetest.di.application
 
 import android.content.Context
-import com.talento.codetest.di.modules.*
+import com.talento.codetest.AppApplication
+import com.talento.codetest.di.application.module.*
 import com.talento.codetest.utils.schedulers.IScheduleProvider
 import com.talento.data.file.IFileDataSource
 import com.talento.domain.IRepository
@@ -28,4 +29,10 @@ interface ApplicationComponent {
     fun provideSchedule(): IScheduleProvider
 
     fun provideUseCase(): GetAccountSingleUseCase
+
+    companion object {
+        fun init(appApplication: AppApplication): ApplicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(ApplicationModule(appApplication))
+                .build()
+    }
 }

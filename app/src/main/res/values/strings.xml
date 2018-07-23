@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeTest</string>
+    <string name="app_name">TALENTOmobileTest</string>
 
     <string name="fragment_all_accounts">fragment_all_accounts</string>
     <string name="fragment_visible_accounts">fragment_visible_accounts</string>
