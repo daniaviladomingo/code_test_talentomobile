@@ -1,7 +1,7 @@
 package com.talento.data.file.model.mapper
 
 import com.talento.data.file.model.AccountFile
-import com.talento.domain.mapper.Mapper
+import com.talento.domain.model.mapper.Mapper
 import com.talento.domain.model.Account
 
 class FileMapper: Mapper<AccountFile, Account>() {

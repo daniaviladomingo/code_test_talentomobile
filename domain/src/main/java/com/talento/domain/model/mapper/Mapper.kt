@@ -1,4 +1,4 @@
-package com.talento.domain.mapper
+package com.talento.domain.model.mapper
 
 abstract class Mapper<M, P> {
     abstract fun map(model: M): P

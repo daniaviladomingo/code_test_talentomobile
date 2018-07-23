@@ -8,7 +8,7 @@ import com.talento.data.file.FileDataSourceImp
 import com.talento.data.file.IFileDataSource
 import com.talento.data.file.model.AccountFile
 import com.talento.data.file.model.mapper.FileMapper
-import com.talento.domain.mapper.Mapper
+import com.talento.domain.model.mapper.Mapper
 import com.talento.domain.model.Account
 import dagger.Module
 import dagger.Provides
