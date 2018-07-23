@@ -15,6 +15,11 @@ class AccountListAdapter(private var accountList: List<Account>): RecyclerView.A
 
     override fun onBindViewHolder(holder: AccountHolder, position: Int) = holder.bin(accountList[position])
 
+    fun replaceData(crewList: List<Account>) {
+        this.accountList = crewList
+        notifyDataSetChanged()
+    }
+
     inner class AccountHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bin(account: Account){
             account.run {

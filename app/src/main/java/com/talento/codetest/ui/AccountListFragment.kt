@@ -9,8 +9,12 @@ import com.talento.codetest.base.BaseFragment
 import com.talento.codetest.ui.adapter.AccountListAdapter
 import com.talento.domain.model.Account
 import kotlinx.android.synthetic.main.fragment_account_list.*
+import javax.inject.Inject
 
 class AccountListFragment: BaseFragment() {
+
+    @Inject
+    lateinit var mainViewModel: MainViewModel
 
     private val accountList = mutableListOf<Account>()
     private lateinit var accountListAdapter: AccountListAdapter
@@ -26,6 +30,10 @@ class AccountListFragment: BaseFragment() {
         account_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
+    override fun getLayoutId() = R.layout.fragment_account_list
+
+    override fun getViewModel() = mainViewModel
+
     fun updateAccountList(accountList: List<Account>) {
         this.accountList.run {
             clear()
@@ -36,6 +44,4 @@ class AccountListFragment: BaseFragment() {
             accountListAdapter.notifyDataSetChanged()
         }
     }
-
-    override fun getLayoutId() = R.layout.fragment_account_list
 }

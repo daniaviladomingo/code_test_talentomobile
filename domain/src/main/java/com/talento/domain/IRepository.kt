@@ -4,5 +4,5 @@ import com.talento.domain.model.Account
 import io.reactivex.Single
 
 interface IRepository {
-    fun getAccounts(visibleAccount: Boolean): Single<List<Account>>
+    fun getAccounts(filterVisibleAccount: Boolean): Single<List<Account>>
 }

@@ -17,5 +17,12 @@ abstract class BaseFragment: Fragment() {
         return rootView
     }
 
+    override fun onDestroy() {
+        getViewModel().release()
+        super.onDestroy()
+    }
+
+    abstract fun getViewModel(): BaseViewModel
+
     abstract fun getLayoutId(): Int
 }
