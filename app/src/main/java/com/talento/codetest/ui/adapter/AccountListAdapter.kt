@@ -1,9 +1,9 @@
 package com.talento.codetest.ui.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.talento.codetest.R
 import com.talento.domain.model.Account
 import kotlinx.android.synthetic.main.item_account.view.*

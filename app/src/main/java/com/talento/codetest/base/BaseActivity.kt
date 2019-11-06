@@ -1,7 +1,7 @@
 package com.talento.codetest.base
 
 import android.os.Bundle
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import com.talento.codetest.AppApplication
 import com.talento.codetest.base.progress.IShowProgress
 import com.talento.codetest.di.activity.DaggerActivity

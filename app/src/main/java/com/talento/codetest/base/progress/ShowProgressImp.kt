@@ -1,7 +1,6 @@
-package com.talento.codetest.base
+package com.talento.codetest.base.progress
 
 import android.app.ProgressDialog
-import com.talento.codetest.base.progress.IShowProgress
 
 class ShowProgressImp(var progressDialog: ProgressDialog): IShowProgress {
 

@@ -16,8 +16,8 @@ class FileDataSourceImp(private val fileMapper: Mapper<AccountFile, Account>,
 
     private val textFile: String = BufferedReader(InputStreamReader(inputStream)).readText()
 
-    override fun getAccounts(filterVisibleAccounts: Boolean): Single<List<Account>> = Single.create<List<Account>> {
+    override fun getAccounts(filterVisibleAccounts: Boolean): Single<List<Account>> = Single.create<List<Account>> { emitter ->
         val listAccountFile = gson.fromJson(textFile, File::class.java).accounts
-        it.onSuccess(fileMapper.map(listAccountFile.filter { !filterVisibleAccounts || it.isVisible }))
+        emitter.onSuccess(fileMapper.map(listAccountFile.filter { !filterVisibleAccounts || it.isVisible }))
     }
 }
